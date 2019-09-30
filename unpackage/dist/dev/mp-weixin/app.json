@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add/add",
+    "pages/my/my",
+    "pages/newHouse/newHouse",
+    "pages/secondHouse/secondHouse"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/icon/main.png",
+        "selectedIconPath": "static/icon/main-sel.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/newHouse/newHouse",
+        "iconPath": "static/icon/house.png",
+        "selectedIconPath": "static/icon/house-sel.png",
+        "text": "新楼盘"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "iconPath": "static/icon/add.png",
+        "selectedIconPath": "static/icon/add-sel.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/secondHouse/secondHouse",
+        "iconPath": "static/icon/second.png",
+        "selectedIconPath": "static/icon/second-sel.png",
+        "text": "二手房"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/icon/my.png",
+        "selectedIconPath": "static/icon/my-sel.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap19.json"
+}
