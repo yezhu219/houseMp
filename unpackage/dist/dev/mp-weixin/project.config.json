@@ -4,11 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
-	"appid": "touristappid",
+	"libVersion": "2.9.2",
+	"appid": "wx81e391f6d6066a5a",
 	"projectname": "houseMp",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -21,13 +24,42 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/addAppoint/addAppoint",
+					"pathName": "pages/addAppoint/addAppoint",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/selPublish/selPublish",
+					"pathName": "pages/selPublish/selPublish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/appoint/appoint",
+					"pathName": "pages/appoint/appoint",
+					"scene": null
+				}
+			]
 		}
 	}
 }

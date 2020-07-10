@@ -1,0 +1,226 @@
+
+/* 字体相关 */
+.fz32 {
+    font-size: 32upx;
+}
+.fz30 {
+    font-size: 30upx;
+}
+.fz28 {
+    font-size: 28upx;
+}
+.fz26 {
+    font-size: 26upx;
+}
+.fz24 {
+    font-size: 24upx;
+}
+.fz22 {
+    font-size: 22upx;
+}
+.fz20 {
+    font-size: 20upx;
+}
+
+
+.fw-b {
+    font-weight: bold;
+}
+
+.c-a5 {
+    color: #A5A5A5;
+}
+.c-9c {
+    color: #9CAC00;
+}
+.c-e8 {
+    color: #E81100;
+}
+.c-333 {
+    color: #333;
+}
+.c-666 {
+    color: #666;
+}
+.c-999 {
+    color: #999;
+}
+.c-1f {
+    color: #1F1F1F;
+}
+.c-7b {
+    color: #7B8900;
+}
+.c-fa {
+    color: #FABF01;
+}
+.c-a5 {
+    color: #A5A5A5;
+}
+.c-fe {
+    color: #FEFEFE;
+}
+.c-f0 {
+    color: #F01F1F;
+}
+.c-fff {
+    color: #fff;
+}
+.c-ff6 {
+	color: #FF6531;
+}
+
+.bg {
+    background-color: rgb(249, 249, 249);
+}
+.bg-f {
+    background-color: #fff;
+}
+.bg-ef {
+    background-color: #EFF2C0;
+}
+.bg-fe {
+    background-color: #FEF1C7;
+}
+.bg-9c {
+    background-color: #9CAC00;
+}
+.bg-19 {
+    background-color: #19AD1A;
+}
+
+.dots {
+    width: 480upx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+/* 布局 */
+.df {
+    display: flex;
+}
+.df-ac {
+    display: flex;
+    align-items: center;
+}
+.df-cc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fsb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+
+.tac {
+    text-align: center;
+}
+.tal {
+    text-align: left;
+}
+.tar {
+    text-align: right;
+}
+
+.pdtb-30 {
+    padding: 30upx 0;
+}
+.pdlr-32 {
+    padding: 0 32upx;
+}
+.pdlr-30 {
+    padding: 0 30upx;
+}
+.pdb-30 {
+    padding-bottom: 30upx;
+}
+.mr-24 {
+    margin-right: 24upx;
+}
+.mr-30 {
+    margin-right: 30upx;
+}
+.mr-40 {
+    margin-right: 40upx;
+}
+.mb-15 {
+    margin-bottom: 15upx;
+}
+.mb-24 {
+    margin-bottom: 24upx;
+}
+.mb-30 {
+    margin-bottom: 30upx;
+}
+.mb-40 {
+    margin-bottom: 40upx;
+}
+.mt-20 {
+    margin-top: 20upx;
+}
+
+
+/* 公共样式 */
+.line-b {
+    border-bottom: 1px solid #E1E1E1;
+}
+.line-t {
+    border-top: 1px solid #E1E1E1;
+}
+.br-6 {
+    border-radius: 6upx;
+}
+.box-shadow {
+    box-shadow:0upx 10upx 35upx 0upx rgba(4,70,96,0.18);
+}
+
+
+
+page {
+    background-color: #f9f9f9;
+}
+view,text {
+    box-sizing: border-box;
+}
+
+.btn {
+    padding: 30upx 0;
+    text-align: center;
+}
+.b-title {
+    padding: 27upx 0 48upx 0;
+}
+.imgList image {
+    width: 160upx;
+    height: 160upx;
+    margin-right: 24upx;
+}
+.b-cell {
+    padding: 38upx 32upx;
+    background-color: #fff;
+}
+
+.page {
+	padding: 14upx;
+	background-color: rgb(242, 247, 255);
+	width: 100vw;
+	min-height: 100vh;
+}
+.bs10 {
+	border-radius: 10upx;
+}
+.wrap {
+	flex-wrap: wrap;
+}
+
+

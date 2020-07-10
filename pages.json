@@ -3,13 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
-		{
-			"path": "pages/add/add",
-			"style": {
-				"navigationBarTitleText": "发布信息"
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
@@ -19,60 +13,102 @@
 			}
 		},
 		{
-			"path": "pages/newHouse/newHouse",
+			"path": "pages/owner/owner",
 			"style": {
-				"navigationBarTitleText": "新楼盘"
-			}
-		},
-		{
-			"path": "pages/secondHouse/secondHouse",
-			"style": {
-				"navigationBarTitleText": "二手房"
+				"navigationBarTitleText": "业主"
 			}
 		}
 		
-	],
+	    ,{
+            "path" : "pages/addNews/addNews",
+            "style" : {
+							"navigationBarTitleText": "发布"
+						}
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {
+							"navigationBarTitleText": "详情"
+						}
+        }
+        ,{
+            "path" : "pages/publish/publish",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/searchPage/searchPage",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/selPublish/selPublish",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/collection/collection",
+            "style" : {
+							"navigationBarTitleText": "我的收藏"
+						}
+        }
+        ,{
+            "path" : "pages/myNews/myNews",
+            "style" : {
+							"navigationBarTitleText": "我的发布"
+						}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+							"navigationBarTitleText": "登录"
+						}
+        }
+        ,{
+            "path" : "pages/counsoler/counsoler",
+            "style" : {
+							"navigationBarTitleText": "我的顾问"
+						}
+        }
+        ,{
+            "path" : "pages/appoint/appoint",
+            "style" : {
+							"navigationBarTitleText": "我的预约"
+						}
+        }
+        ,{
+            "path" : "pages/addAppoint/addAppoint",
+            "style" : {
+							"navigationBarTitleText": "预约"
+						}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#fff"
 	},
 	"tabBar": {
-		"color":"#333333",
-		"selectedColor":"#1296db",
+		"color":"#000",
+		"selectedColor":"#FF6531",
 		"backgroundColor":"#FFFFFF",
 		"borderStyle": "white",
 		"list":[
 			{
 				"pagePath":"pages/index/index",
-				 "iconPath":"static/icon/main.png",
-				 "selectedIconPath":"static/icon/main-sel.png",
+				 "iconPath":"static/icon/home.png",
+				 "selectedIconPath":"static/icon/home1.png",
 				 "text":"首页"
 			},
 			{
-				"pagePath":"pages/newHouse/newHouse",
-				 "iconPath":"static/icon/house.png",
-				 "selectedIconPath":"static/icon/house-sel.png",
-				 "text":"新楼盘"
-			},
-			{
-				"pagePath":"pages/add/add",
-				 "iconPath":"static/icon/add.png",
-				 "selectedIconPath":"static/icon/add-sel.png",
-				 "text":"发布"
-			},
-			{
-				"pagePath":"pages/secondHouse/secondHouse",
-				 "iconPath":"static/icon/second.png",
-				 "selectedIconPath":"static/icon/second-sel.png",
-				 "text":"二手房"
+				"pagePath":"pages/owner/owner",
+				 "iconPath":"static/icon/owner.png",
+				 "selectedIconPath":"static/icon/owner1.png",
+				 "text":"业主"
 			},
 			{
 				"pagePath":"pages/my/my",
 				 "iconPath":"static/icon/my.png",
-				 "selectedIconPath":"static/icon/my-sel.png",
-				 "text":"个人中心"
+				 "selectedIconPath":"static/icon/my1.png",
+				 "text":"我的"
 			}
 		]
 	}
