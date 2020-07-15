@@ -47,14 +47,14 @@
 							let token=  await  _this.$api.login({js_code:code,shop_id})
 							if(token.data&&token.data.token) {
 								uni.setStorageSync('token',token.data.token)
-								// let result= await _this.$api.updateUserInfo({nick_name:userInfo.nickName,avatar_url:userInfo.avatarUrl})
 								uni.setStorageSync('isNew',token.data.new_user)
 								uni.setStorageSync('userInfo',userInfo)
-								// if(result) {
-								// 	uni.switchTab({
-								// 			url:'/pages/index'
-								// 	})
-								// }
+								let result= await _this.$api.updateUser({nick_name:userInfo.nickName,avatar_url:userInfo.avatarUrl})
+								if(result) {
+									uni.switchTab({
+											url:'/pages/index/index'
+									})
+								}
 							}
 						}
 					},

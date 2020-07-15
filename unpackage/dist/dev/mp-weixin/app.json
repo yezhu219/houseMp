@@ -13,7 +13,8 @@
     "pages/login/login",
     "pages/counsoler/counsoler",
     "pages/appoint/appoint",
-    "pages/addAppoint/addAppoint"
+    "pages/addAppoint/addAppoint",
+    "pages/uploadImage/uploadImage"
   ],
   "subPackages": [],
   "window": {
@@ -35,10 +36,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/owner/owner",
+        "pagePath": "pages/addNews/addNews",
         "iconPath": "static/icon/owner.png",
         "selectedIconPath": "static/icon/owner1.png",
-        "text": "业主"
+        "text": "发布"
       },
       {
         "pagePath": "pages/my/my",
@@ -51,6 +52,12 @@
   "permission": {
     "scope.userLocation": {
       "desc": "推荐房源"
+    }
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.4",
+      "provider": "wx76a9a06e5b4e693e"
     }
   },
   "usingComponents": {}

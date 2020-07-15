@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "旭日商业服务平台"
 			}
 		},
 		{
@@ -15,7 +15,7 @@
 		{
 			"path": "pages/owner/owner",
 			"style": {
-				"navigationBarTitleText": "业主"
+				"navigationBarTitleText": "发布"
 			}
 		}
 		
@@ -37,7 +37,9 @@
         }
         ,{
             "path" : "pages/searchPage/searchPage",
-            "style" : {}
+            "style" : {
+							"navigationBarTitleText": "搜索"
+						}
         }
         ,{
             "path" : "pages/selPublish/selPublish",
@@ -79,6 +81,12 @@
 							"navigationBarTitleText": "预约"
 						}
         }
+        ,{
+            "path" : "pages/uploadImage/uploadImage",
+            "style" : {
+							"navigationBarTitleText": "房源图片"
+						}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -99,10 +107,10 @@
 				 "text":"首页"
 			},
 			{
-				"pagePath":"pages/owner/owner",
+				"pagePath":"pages/addNews/addNews",
 				 "iconPath":"static/icon/owner.png",
 				 "selectedIconPath":"static/icon/owner1.png",
-				 "text":"业主"
+				 "text":"发布"
 			},
 			{
 				"pagePath":"pages/my/my",

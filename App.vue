@@ -45,10 +45,23 @@
 		padding:36upx 60upx ;
 		background-color: #fff;
 		.imgbox {
+			display: flex;
 			image {
 				width: 130upx;
 				height: 130upx;
 				margin-right: 20upx;
+			}
+			.img-item {
+				position: relative;
+				width: 130upx;
+				height: 130upx;
+				.gb {
+					position: absolute;
+					width: 40upx;
+					height: 40upx;
+					top: -20upx;
+					right: -10upx;
+				}
 			}
 		}
 	}
@@ -58,6 +71,13 @@
 		padding-bottom: 24upx;
 		font-size: 24upx;
 		background-color: #fff;
+		&.textarea {
+			align-items: flex-start;
+			textarea {
+				width: 100%;
+				height: 200upx;
+			}
+		}
 		&.top {
 			align-items: flex-start;
 		}

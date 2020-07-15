@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   simpleAddress: function() {
-    return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.vue */ 129))
+    return Promise.all(/*! import() | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then(__webpack_require__.bind(null, /*! @/components/simple-address/simple-address.vue */ 137))
   }
 }
 var render = function() {
@@ -367,9 +367,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */ 57));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then((function () {return resolve(__webpack_require__(/*! ../../components/simple-address/simple-address.vue */ 129));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */ 57));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var simpleAddress = function simpleAddress() {Promise.all(/*! require.ensure | components/simple-address/simple-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/simple-address/simple-address")]).then((function () {return resolve(__webpack_require__(/*! ../../components/simple-address/simple-address.vue */ 137));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var chooseLocation = requirePlugin('chooseLocation');var _default =
 {
-  data: function data() {
+  data: function data() {var _addData;
     var currentDate = this.getDate({
       format: true });
 
@@ -424,7 +438,7 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
       house_type: '',
       stateList: type.stateList,
       type: 1, //1 生意转让 2 商铺出租 3商铺出售
-      addData: {
+      addData: (_addData = {
         title: '',
         desc: '',
         housing_type: '',
@@ -464,8 +478,12 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
         shop_price: '',
         yuqi_price: '',
         zhaunrang: '',
-        shengyuzuqi: '' }
+        shengyuzuqi: '' }, _defineProperty(_addData, "desc",
+      ''), _defineProperty(_addData, "keliu",
+      ''), _defineProperty(_addData, "alumb",
+      []), _addData),
 
+      houseImgs: []
       // startDate:Date.now(),
       // endDate:Date.now()
     };
@@ -473,6 +491,11 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
   created: function created() {
     this.getRegin();
     this.floorList = Array.from({ length: 100 }, function (v, k) {return k;});
+  },
+  onShow: function onShow() {
+    var location = chooseLocation.getLocation();
+    console.log(location, 'loaction');
+    this.addData.address = location && location.name;
   },
   computed: {
     startDate: function startDate() {
@@ -483,6 +506,19 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
     } },
 
   methods: {
+    getPosition: function getPosition() {
+      var key = 'BHABZ-RE7KD-GAL46-HU7JI-L77ZO-OCBVB'; //使用在腾讯位置服务申请的key
+      var referer = 'houseMp'; //调用插件的app的名称
+      // const location = JSON.stringify({
+      //   latitude: 39.89631551,
+      //   longitude: 116.323459711
+      // });
+      var category = '生活服务,娱乐休闲';
+
+      wx.navigateTo({
+        url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&category=' + category });
+
+    },
     getRegin: function getRegin() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.$api.getRegion());case 2:res = _context.sent;
                 if (res) {
@@ -491,11 +527,12 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
     },
     addItem: function addItem() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   _this3.$api.addHouse(_this3.addData));case 2:res = _context2.sent;
+                console.log(res, 'asdf');
                 if (res) {
                   uni.redirectTo({
-                    url: '/pages/myNews/myNews' });
+                    url: '/pages/uploadImage/uploadImage?id=' + res.id });
 
-                }case 4:case "end":return _context2.stop();}}}, _callee2);}))();
+                }case 5:case "end":return _context2.stop();}}}, _callee2);}))();
     },
     getDate: function getDate(type) {
       var date = new Date();
@@ -567,7 +604,7 @@ var type = _interopRequireWildcard(__webpack_require__(/*! ../../util/type.js */
           var tempFilePaths = chooseImageRes.tempFilePaths;
           console.log(chooseImageRes, 'file');
           uni.uploadFile({
-            url: 'http://olvintage.com:8080/api/upload/',
+            url: 'https://olvintage.com/api/upload/',
             filePath: tempFilePaths[0],
             name: 'file',
             header: {

@@ -97,6 +97,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.isEdit = true
+    }
+  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,7 +135,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -170,17 +181,70 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      user: {
+        avatar_url: '',
+        nick_name: '' },
 
+      isEdit: false };
 
   },
+  onShow: function onShow() {
+    this.init();
+  },
   methods: {
+    init: function init() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this2.$api.getUserInfo());case 2:res = _context.sent;
+                if (res) {
+                  console.log(res, '111');
+                  _this2.user = res.data;
+                }case 4:case "end":return _context.stop();}}}, _callee);}))();
+    },
     toMyNews: function toMyNews(type) {
       uni.navigateTo({
         url: '/pages/' + type + '/' + type });
 
     },
     login: function login() {
+
+    },
+    save: function save() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this3.isEdit = false;_context2.next = 3;return (
+                  _this3.$api.updateUser(_this3.user));case 3:res = _context2.sent;
+                if (res) {
+                  uni.showToast({
+                    title: '修改成功' });
+
+                }case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+    },
+    saveImg: function saveImg() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var _this;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                _this = _this4;
+                uni.chooseImage({
+                  success: function success(chooseImageRes) {
+                    var tempFilePaths = chooseImageRes.tempFilePaths;
+                    console.log(chooseImageRes, 'file');
+                    uni.uploadFile({
+                      url: 'https://olvintage.com/api/upload/',
+                      filePath: tempFilePaths[0],
+                      name: 'file',
+                      header: {
+                        // 'Content-Type': 'application/json',
+                        'Content-Type': 'multipart/form-data',
+                        'Authorization': 'jwt ' + uni.getStorageSync('token') },
+
+                      success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(uploadFileRes) {var data, res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                                  data = JSON.parse(uploadFileRes.data);
+                                  console.log(uploadFileRes, '888');
+                                  _this.user.avatar_url = data.url;_context3.next = 5;return (
+                                    _this4.$api.updateUser(_this.user));case 5:res = _context3.sent;
+                                  if (res) {
+                                    uni.showToast({
+                                      title: '修改成功' });
+
+                                  }case 7:case "end":return _context3.stop();}}}, _callee3);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+
+
+                  } });case 2:case "end":return _context4.stop();}}}, _callee4);}))();
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

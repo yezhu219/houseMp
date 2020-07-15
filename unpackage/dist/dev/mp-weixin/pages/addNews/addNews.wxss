@@ -28,4 +28,9 @@
   padding: 14rpx 0;
   height: auto;
 }
+.addNews textarea {
+  border: 1rpx solid #E1E1E1;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
 

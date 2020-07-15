@@ -1,8 +1,8 @@
 <template>
 	<view class="page">
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-			<swiper-item>
-				<view class="swiper-item"><image src="../../static/icon/img.png" mode=""></image></view>
+			<swiper-item v-for="ban in bannerList" :key="ban.id">
+				<view class="swiper-item"><image :src="ban.file" mode=""></image></view>
 			</swiper-item>
 		</swiper>
 		<view class="search mb-30 mt-20">
@@ -49,7 +49,8 @@
 					{id:3,name:'品牌库',icon:require('static/icon/ppk.png')},
 				],
 				regionList:[],
-				list:[]
+				list:[],
+				bannerList:[]
 			}
 		},
 		onLoad() {
@@ -58,12 +59,19 @@
 		async created() {
 			await this.getRegin()
 			this.init()
+			this.getBannerList()
 		},
 		methods: {
 			async init() {
 				let res = await this.$api.homeRecord()
 				if(res) {
 					this.list = res
+				}
+			},
+			async getBannerList() {
+				let res = await this.$api.getBanner()
+				if(res) {
+					this.bannerList = res
 				}
 			},
 			async getRegin() {
@@ -94,7 +102,7 @@
 					return 
 				}
 				uni.navigateTo({
-					url:'/pages/searchPage/searchPage?type='+data.id
+					url:'/pages/searchPage/searchPage?type='+data.name
 				})
 			}
 		},

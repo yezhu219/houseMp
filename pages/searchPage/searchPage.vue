@@ -4,8 +4,11 @@
 			<image src="../../static/icon/search.png" mode=""></image>
 			<input type="text" v-model="key" @change="init">
 		</view>
-		<view class="list">
-			<card v-for="(item,index) in list " :datas="item.fields" :key="index"></card>
+		<view class="list" v-if="list.length>0">
+			<card v-for="(item,index) in list " :datas="item.fields" :houseId="item.pk" :key="index"></card>
+		</view>
+		<view class="tac" v-if="list.length==0">
+			没有数据~~~
 		</view>
 	</view>
 </template>
@@ -21,16 +24,17 @@
 			};
 		},
 		onLoad(op) {
-			this.type= op.type
+			this.key = this.type= op.type
 		},
-		created() {
-			
+		mounted() {
+			this.init()
 		},
 		methods: {
 			async init() {
 				let res = await this.$api.search({key:this.key})
 				if(res) {
 					this.list = res
+					console.log(res[0].pk,'pk')
 				}
 			}
 		},

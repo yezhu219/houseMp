@@ -1,6 +1,6 @@
 <template>
 	<view class="page-counsoler">
-		guwen
+		<button open-type="contact" class="chat" @contact="handleContact">客服</button>
 	</view>
 </template>
 
@@ -12,11 +12,16 @@
 			}
 		},
 		methods: {
-			
+			handleContact(e) {
+				console.log(e,'sdfdsf')
+			}
 		}
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+.chat {
+	width: 100upx;
+	font-size: 22upx;
+}
 </style>

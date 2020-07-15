@@ -2,12 +2,11 @@
  * 封装uni的request
  */
 // const baseUrl = 'http://49.234.133.200:8001'
-const baseUrl = 'http://olvintage.com:8080/'
+const baseUrl = 'https://olvintage.com/'
 const shopId = '9986737883062651401706261418474'
 
 export function request(url, method = "GET", data,config={}) {
   return new Promise(function (resolve, reject) {
-		console.log(baseUrl+url,'url')
 		let token = uni.getStorageSync('token')
     uni.request({
       url: baseUrl+url,
@@ -21,6 +20,13 @@ export function request(url, method = "GET", data,config={}) {
       },
       success: function (res) {
         uni.hideLoading()
+				if(res.statusCode==401) {
+					uni.removeStorageSync('token')
+					uni.navigateTo({
+						url:'/pages/login/login'
+					})
+					return 
+				}
         resolve(res.data)
       },
       fail: function (err) {

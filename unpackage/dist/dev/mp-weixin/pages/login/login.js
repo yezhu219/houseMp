@@ -171,23 +171,23 @@ var _default =
         return;
       }
       wx.login({
-        success: function success(res) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, code, shop_id, token;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+        success: function success(res) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, code, shop_id, token, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                     userInfo = e.detail.userInfo;if (!
-                    res.code) {_context.next = 8;break;}
+                    res.code) {_context.next = 15;break;}
                     code = res.code;
                     shop_id = '9986737883062651401706261418474';_context.next = 6;return (
-                      _this.$api.login({ js_code: code, shop_id: shop_id }));case 6:token = _context.sent;
-                    if (token.data && token.data.token) {
-                      uni.setStorageSync('token', token.data.token);
-                      // let result= await _this.$api.updateUserInfo({nick_name:userInfo.nickName,avatar_url:userInfo.avatarUrl})
-                      uni.setStorageSync('isNew', token.data.new_user);
-                      uni.setStorageSync('userInfo', userInfo);
-                      // if(result) {
-                      // 	uni.switchTab({
-                      // 			url:'/pages/index'
-                      // 	})
-                      // }
-                    }case 8:case "end":return _context.stop();}}}, _callee);}))();
+                      _this.$api.login({ js_code: code, shop_id: shop_id }));case 6:token = _context.sent;if (!(
+                    token.data && token.data.token)) {_context.next = 15;break;}
+                    uni.setStorageSync('token', token.data.token);
+                    uni.setStorageSync('isNew', token.data.new_user);
+                    uni.setStorageSync('userInfo', userInfo);_context.next = 13;return (
+                      _this.$api.updateUser({ nick_name: userInfo.nickName, avatar_url: userInfo.avatarUrl }));case 13:result = _context.sent;
+                    if (result) {
+                      uni.switchTab({
+                        url: '/pages/index/index' });
+
+                    }case 15:case "end":return _context.stop();}}}, _callee);}))();
+
 
         },
         fail: function fail(err) {

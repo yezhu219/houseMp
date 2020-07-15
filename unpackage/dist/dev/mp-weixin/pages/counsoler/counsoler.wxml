@@ -1,1 +1,1 @@
-<view class="page-counsoler">guwen</view>
+<view class="page-counsoler"><button class="chat" open-type="contact" data-event-opts="{{[['contact',[['handleContact',['$event']]]]]}}" bindcontact="__e">客服</button></view>

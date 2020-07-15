@@ -130,7 +130,37 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var user = function user() {__webpack_require__.e(/*! require.ensure | components/user */ "components/user").then((function () {return resolve(__webpack_require__(/*! ../../components/user.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var user = function user() {__webpack_require__.e(/*! require.ensure | components/user */ "components/user").then((function () {return resolve(__webpack_require__(/*! ../../components/user.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -208,7 +238,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isCollect: false,
       id: '',
-      house: {} };
+      house: {},
+      staff: {} };
 
   },
   onLoad: function onLoad(op) {
@@ -216,30 +247,45 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.init();
+    this.getStatus();
+    this.getStaff();
   },
   methods: {
-    init: function init() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                console.log(_this.id, '--');_context.next = 3;return (
-                  _this.$api.getHouseById(_this.id));case 3:res = _context.sent;
+    init: function init() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this.$api.getHouseById(_this.id));case 2:res = _context.sent;
                 if (res) {
                   _this.house = res;
-                }case 5:case "end":return _context.stop();}}}, _callee);}))();
+                }case 4:case "end":return _context.stop();}}}, _callee);}))();
     },
-    handleCollect: function handleCollect(data) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res, msg;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+    getStaff: function getStaff() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  _this2.$api.getStaff({ id: _this2.id }));case 2:res = _context2.sent;
+                if (res && res.data) {
+                  _this2.staff = res.data;
+                }case 4:case "end":return _context2.stop();}}}, _callee2);}))();
+    },
+    getStatus: function getStatus() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  _this3.$api.getCollectStatus({ id: _this3.id }));case 2:res = _context3.sent;
+                if (res && res.data) {
+                  _this3.isCollect = res.data.is_collect;
+                  _this3.collectId = res.data.id;
+                }case 4:case "end":return _context3.stop();}}}, _callee3);}))();
+    },
+    handleCollect: function handleCollect(data) {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var res, msg;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
                 res = null;
                 msg = '';
                 console.log(data, '--');if (!(
-                data == 2)) {_context2.next = 10;break;}_context2.next = 6;return (
-                  _this2.$api.addCollect({ housing: _this2.id }));case 6:res = _context2.sent;
-                msg = '收藏成功';_context2.next = 14;break;case 10:_context2.next = 12;return (
+                data == 2)) {_context4.next = 10;break;}_context4.next = 6;return (
+                  _this4.$api.addCollect({ housing: _this4.id }));case 6:res = _context4.sent;
+                msg = '收藏成功';_context4.next = 14;break;case 10:_context4.next = 12;return (
 
-                  _this2.$api.delCollect(_this2.id));case 12:res = _context2.sent;
+                  _this4.$api.delCollect(_this4.collectId));case 12:res = _context4.sent;
                 msg = '取消收藏成功';case 14:
 
                 uni.showToast({
                   icon: 'none',
-                  title: msg });case 15:case "end":return _context2.stop();}}}, _callee2);}))();
+                  title: msg });
 
+                _this4.getStatus();case 16:case "end":return _context4.stop();}}}, _callee4);}))();
     } },
 
   components: {

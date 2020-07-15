@@ -1,1 +1,1 @@
-<view class="page-collection"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><card vue-id="{{'25461d80-1-'+__i0__}}" datas="{{item}}" isCollect="{{true}}" bind:__l="__l"></card></block></view>
+<view class="page-collection"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><card vue-id="{{'25461d80-1-'+__i0__}}" datas="{{item}}" isCollect="{{true}}" data-event-opts="{{[['^refresh',[['init']]]]}}" bind:refresh="__e" bind:__l="__l"></card></block></view>

@@ -349,10 +349,27 @@ view, input, textarea, text {
   padding: 36rpx 60rpx;
   background-color: #fff;
 }
+.form-container .imgbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
 .form-container .imgbox image {
   width: 130rpx;
   height: 130rpx;
   margin-right: 20rpx;
+}
+.form-container .imgbox .img-item {
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+}
+.form-container .imgbox .img-item .gb {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: -20rpx;
+  right: -10rpx;
 }
 .form-item {
   display: -webkit-box;
@@ -364,6 +381,15 @@ view, input, textarea, text {
   padding-bottom: 24rpx;
   font-size: 24rpx;
   background-color: #fff;
+}
+.form-item.textarea {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+          align-items: flex-start;
+}
+.form-item.textarea textarea {
+  width: 100%;
+  height: 200rpx;
 }
 .form-item.top {
   -webkit-box-align: start;

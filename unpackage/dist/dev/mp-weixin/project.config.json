@@ -41,22 +41,23 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/addAppoint/addAppoint",
-					"pathName": "pages/addAppoint/addAppoint",
+					"name": "pages/counsoler/counsoler",
+					"pathName": "pages/counsoler/counsoler",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/selPublish/selPublish",
-					"pathName": "pages/selPublish/selPublish",
+					"name": "pages/addNews/addNews",
+					"pathName": "pages/addNews/addNews",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/appoint/appoint",
-					"pathName": "pages/appoint/appoint",
+					"name": "pages/uploadImage/uploadImage",
+					"pathName": "pages/uploadImage/uploadImage",
+					"query": "id=11",
 					"scene": null
 				}
 			]

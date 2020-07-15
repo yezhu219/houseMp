@@ -21,24 +21,31 @@
 			<view class="form-item line-b">
 				<view class="label" >商铺地址<text class="c-ff6">*</text></view>
 				<view class="right">
-					<input type="text" placeholder="请输入" v-model="addData.address" />
+					<input type="text" placeholder="请选择" v-model="addData.address"  @click="getPosition"/>
 				</view>
 			</view>
-			<view class="form-item mt-20">
+			<view class="form-item mt-20 line-b">
 				<view class="label">标题<text class="c-ff6">*</text></view>
 				<view class="right">
 					<input type="text" v-model="addData.title" placeholder="请输入标题"  />
 				</view>
 			</view>
+			<view class="form-item mt-20 textarea">
+				<view class="label">房源描述<text class="c-ff6">*</text></view>
+				<view class="right">
+					<textarea type="text" v-model="addData.desc" placeholder="请输入房源描述" ></textarea>
+				</view>
+			</view>
 		</view>
 		<view class="form-container mb-30">
-			<view class="mb-30">封面图<text class="c-ff6">*</text>（最多6张）</view>
+			<view class="mb-30">封面图<text class="c-ff6">*</text></view>
 			<view class="imgbox">
 				<!-- <image :src="img"  v-for="(img,index) in addData.thumb" :key="index"></image> -->
 				<image :src="addData.thumb" v-if="addData.thumb"></image>
 				<image src="../../static/icon/add.png" mode="" @click="selImage"></image>
 			</view>
 		</view>
+		
 		<view class="form-container mb-30">
 			<view class="form-item mt-20 line-b">
 				<view class="label">楼层</view>
@@ -197,6 +204,12 @@
 					<input type="text" placeholder="请输入" v-model="addData.dian" />
 				</view>
 			</view>
+			<view class="form-item mt-20 line-b">
+				<view class="label">客流</view>
+				<view class="right">
+					<input type="text" placeholder="请输入" v-model="addData.keliu" />
+				</view>
+			</view>
 			<!-- <view class="form-item top mt-20">
 				<view class="label">配套设施</view>
 				<view class="right df wrap">
@@ -208,10 +221,10 @@
 				</view>
 			</view> -->
 		</view>
-		<view class="form-container mb-30">选择地图</view>
+	<!-- 	<view class="form-container mb-30">选择地图</view>
 		<view class="mb-30">
 			<map style="width: 100%; height: 300px;" :latitude="latitude" :longitude="longitude" :markers="covers"></map>
-		</view>
+		</view> -->
 		<view class="pdtb-30 bg-f fz24 c-ff6 tac" @click="addItem">提交审核</view>
 		<!-- <rangePicker></rangePicker> -->
 		<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor="#007AFF"></simple-address>
@@ -221,6 +234,7 @@
 <script>
 	import simpleAddress from "../../components/simple-address/simple-address.vue"
 	import *as type from '../../util/type.js'
+	const chooseLocation = requirePlugin('chooseLocation');
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -317,8 +331,12 @@
 					shop_price:'',
 					yuqi_price:'',
 					zhaunrang:'',
-					shengyuzuqi:''
+					shengyuzuqi:'',
+					desc:'',
+					keliu:'',
+					alumb:[]
 				},
+				houseImgs:[]
 				// startDate:Date.now(),
 				// endDate:Date.now()
 			}
@@ -326,6 +344,11 @@
 		created() {
 			this.getRegin()
 			this.floorList = Array.from({length:100}, (v,k) => k)
+		},
+		onShow() {
+			  const location = chooseLocation.getLocation();
+				console.log(location,'loaction')
+				this.addData.address = location&&location.name
 		},
 		computed: {
 				startDate() {
@@ -336,6 +359,19 @@
 				}
 		},
 		methods: {
+			getPosition() {
+				const key = 'BHABZ-RE7KD-GAL46-HU7JI-L77ZO-OCBVB'; //使用在腾讯位置服务申请的key
+				const referer = 'houseMp'; //调用插件的app的名称
+				// const location = JSON.stringify({
+				//   latitude: 39.89631551,
+				//   longitude: 116.323459711
+				// });
+				const category = '生活服务,娱乐休闲';
+				 
+				wx.navigateTo({
+				  url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&category=' + category
+				});
+			},
 			async getRegin() {
 				let res = await this.$api.getRegion()
 				if(res) {
@@ -344,9 +380,10 @@
 			},
 			async addItem() {
 				let res = await this.$api.addHouse(this.addData)
+				console.log(res,'asdf')
 				if(res) {
 					uni.redirectTo({
-						url:'/pages/myNews/myNews'
+						url:'/pages/uploadImage/uploadImage?id='+res.id
 					})
 				}
 			},
@@ -420,7 +457,7 @@
 				        const tempFilePaths = chooseImageRes.tempFilePaths;
 								console.log(chooseImageRes,'file')
 				        uni.uploadFile({
-				            url: 'http://olvintage.com:8080/api/upload/', 
+				            url: 'https://olvintage.com/api/upload/', 
 				            filePath: tempFilePaths[0],
 				            name: 'file',
 				            header:{
@@ -475,6 +512,11 @@
 	&.page {
 		padding: 14upx 0;
 		height: auto;
+	}
+	textarea {
+		border: 1upx solid #E1E1E1;
+		padding: 10upx;
+		border-radius: 10upx;
 	}
 	
 }

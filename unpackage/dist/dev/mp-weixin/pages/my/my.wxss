@@ -40,6 +40,20 @@
   width: 130rpx;
   height: 130rpx;
   margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+.my .user input {
+  border: 1px solid #ccc;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+}
+.my .user .u-edit {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 0;
+  margin-left: 20rpx;
 }
 .my .cell {
   padding: 30rpx 34rpx 20rpx 36rpx;

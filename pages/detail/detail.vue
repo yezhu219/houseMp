@@ -1,36 +1,44 @@
 <template>
-	<view class=" page-detail">
+	<view class="page-detail">
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item>
 				<view class="swiper-item"><image src="../../static/icon/img.png" mode=""></image></view>
 			</swiper-item>
 		</swiper>
 		<view class="main">
-			<image src="../../static/icon/c1.png" mode="" class="icon-collect" v-if="isCollect" @click="handleCollect(2)"></image>
+			<image src="../../static/icon/c1.png" mode="" class="icon-collect" v-if="isCollect" @click="handleCollect(1)"></image>
 			<image src="../../static/icon/c2.png" class="icon-collect" v-if="!isCollect"  @click="handleCollect(2)"></image>
 			<view class="mb-24"><text class="c-ff6">{{house.rent}} </text><text class="c-666">{{house.yafu}}</text></view>
 			<view class="title">{{house.title}}</view>
 			<view class="tag df">
-				<view class="tag-item">转让</view>
-				<view class="tag-item">转让</view>
-				<view class="tag-item">转让</view>
+				<view class="tag-item">{{house.housing_type==1?'商铺出租':house.housing_type==2?'商铺出售':'生意转让'}}</view>
+				<!-- <view class="tag-item">转让</view>
+				<view class="tag-item">转让</view> -->
 			</view>
 			<view class="info">
-				<view class="info-item">
+				<view class="info-item" v-if="house.housing_type!=2">
 					<view class="mb-15">{{house.zhaunrang}}万</view>
 					<view class="c-666">转让费</view>
+				</view>
+				<view class="info-item" v-if="house.housing_type==2">
+					<view class="mb-15">{{house.rent}}万</view>
+					<view class="c-666">租金</view>
 				</view>
 				<view class="info-item">
 					<view class="mb-15">{{house.built_up_area}}m²</view>
 					<view class="c-666">面积</view>
 				</view>
-				<view class="info-item">
-					<view class="mb-15">{{house.floor}}层</view>
-					<view class="c-666">楼层</view>
+				<view class="info-item" v-if="house.housing_type==1">
+					<view class="mb-15">{{house.yafu}}</view>
+					<view class="c-666">付款方式</view>
+				</view>
+				<view class="info-item" v-if="house.housing_type!=1">
+					<view class="mb-15">{{house.day_rent}}</view>
+					<view class="c-666">日租金</view>
 				</view>
 			</view>
 			<view class="title">房源须知</view>
-			<view class="note mb-24">
+			<view class="note mb-24" v-if="house.housing_type!=2">
 				<view class="note-item">
 					<image src="../../static/icon/i2.png" mode=""></image>
 					<text class="mr-40">商铺类型</text>
@@ -39,32 +47,54 @@
 				<view class="note-item">
 					<image src="../../static/icon/i2.png" mode=""></image>
 					<text class="mr-40">当前状态</text>
-					<text>临街门面</text>
+					<text>{{house.business_status}}</text>
 				</view>
 				<view class="note-item">
 					<image src="../../static/icon/i2.png" mode=""></image>
 					<text class="mr-40">规格参数</text>
-					<text>临街门面</text>
+					<text>面宽{{house.kuan}}*进深{{house.shen}}*层高{{hous.gao}}</text>
+				</view>
+				<view class="note-item" v-if="house.housing_type==1">
+					<image src="../../static/icon/i2.png" mode=""></image>
+					<text class="mr-40">剩余租期</text>
+					<text>{{house.shengyuzuqi}}</text>
+				</view>
+				<view class="note-item" v-if="house.housing_type==1">
+					<image src="../../static/icon/i2.png" mode=""></image>
+					<text class="mr-40">客流</text>
+					<text>{{house.keliu}}</text>
+				</view>
+			</view>
+			<view class="note mb-24" v-if="house.housing_type==2">
+				<view class="note-item">
+					<image src="../../static/icon/i2.png" mode=""></image>
+					<text class="mr-40">楼层</text>
+					<text>{{house.floor}}</text>
 				</view>
 				<view class="note-item">
 					<image src="../../static/icon/i2.png" mode=""></image>
-					<text class="mr-40">剩余租期</text>
-					<text>3个月</text>
+					<text class="mr-40">层高</text>
+					<text>{{house.gao}}</text>
+				</view>
+				<view class="note-item">
+					<image src="../../static/icon/i2.png" mode=""></image>
+					<text class="mr-40">起租期</text>
+					<text>{{house.free_rent_time}}</text>
 				</view>
 			</view>
-			<view class="title">配套设施</view>
+			<!-- <view class="title">配套设施</view>
 			<view class="eqment mb-30">
 				<view class="eq-item df-cc">
 					<image src="../../static/icon/i1.png" mode=""></image>
 					<view class="c-666">空调</view>
 				</view>
-			</view>
+			</view> -->
 			<view>
-				<user></user>
+				<user :datas="staff"></user>
 			</view>
 		</view>
 		<view>
-			<map style="width: 100%; height: 300px;" ></map>
+			<!-- <map style="width: 100%; height: 300px;" ></map> -->
 		</view>
 	</view>
 </template>
@@ -76,7 +106,8 @@
 			return {
 				isCollect:false,
 				id:'',
-				house:{}
+				house:{},
+				staff:{}
 			}
 		},
 		onLoad(op) {
@@ -84,13 +115,27 @@
 		},
 		mounted() {
 			this.init()
+			this.getStatus()
+			this.getStaff()
 		},
 		methods: {
 			async init() {
-				console.log(this.id,'--')
 				let res = await this.$api.getHouseById(this.id)
 				if(res) {
 					this.house = res
+				}
+			},
+			async getStaff() {
+				let res = await this.$api.getStaff({id:this.id})
+				if(res&&res.data) {
+					this.staff = res.data
+				}
+			},
+			async getStatus() {
+				let res = await this.$api.getCollectStatus({id:this.id})
+				if(res&&res.data) {
+					this.isCollect = res.data.is_collect
+					this.collectId = res.data.id
 				}
 			},
 			async handleCollect(data) {
@@ -101,13 +146,14 @@
 					res = await this.$api.addCollect({housing:this.id})
 					msg = '收藏成功'
 				}else {
-					res= await this.$api.delCollect(this.id)
+					res= await this.$api.delCollect(this.collectId)
 					msg='取消收藏成功'
 				}
 				uni.showToast({
 					icon:'none',
 					title:msg
 				})
+				this.getStatus()
 			}
 		},
 		components: {
@@ -117,6 +163,9 @@
 </script>
 
 <style lang="scss">
+	page {
+		background-color: #fff;
+	}
 .page-detail {
 	.swiper-item {
 		image {

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "首页",
+  "navigationBarTitleText": "旭日商业服务平台",
   "usingComponents": {
     "card": "/components/card"
   }

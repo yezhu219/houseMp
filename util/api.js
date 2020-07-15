@@ -57,7 +57,25 @@ export default {
 	async getBrand(data) {
 	  return await request('api/brand/', 'get',data)
 	},
+	async getBanner(data) {
+	  return await request('api/banner/', 'get',data)
+	},
 	async search(data) {
 	  return await request('api/search/', 'post',data)
+	},
+	async updateUser(data) {
+	  return await request('/api/user/info/', 'post',data)
+	},
+	async getUserInfo(data) {
+	  return await request('/api/user/info/', 'get',data)
+	},
+	async getCollectStatus(data) {
+	  return await request('/api/isCollect/', 'post',data)
+	},
+	async getStaff(data) {
+	  return await request('/api/StaffInfo/', 'post',data)
+	},
+	async uploadHouseImg(data) {
+	  return await request('/api/album/', 'post',data)
 	},
 }

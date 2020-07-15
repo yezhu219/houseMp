@@ -1,6 +1,6 @@
 <template>
 	<view class="page-collection">
-		<card v-for="item in list" :datas="item" :key="item.id" :isCollect="true"></card>
+		<card v-for="item in list" :datas="item" :key="item.id" :isCollect="true" @refresh="init"></card>
 	</view>
 </template>
 
@@ -21,7 +21,8 @@
 				if(res) {
 					this.list = res
 				}
-			}
+			},
+			
 		},
 		components: {
 			card

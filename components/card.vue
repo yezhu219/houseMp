@@ -38,6 +38,10 @@
 			isCollect: {
 				type:Boolean,
 				default:false
+			},
+			houseId: {
+				// type:String,
+				// default:''
 			}
 		},
 		data() {
@@ -67,8 +71,10 @@
 		},
 		methods:{
 			toDetail() {
+				let id = this.houseId?this.houseId:this.datas.id
+				console.log(this.houseId,'id',id)
 				uni.navigateTo({
-					url:'/pages/detail/detail?id='+this.datas.id
+					url:'/pages/detail/detail?id='+id
 				})
 			},
 			getType(data) {
@@ -92,7 +98,10 @@
 						url:'/pages/addNews/addNews?id='+this.datas.id
 					})
 				}else if(e.content.text=='取消收藏') {
-					let re = await this.$api.delCollect()
+					let re = await this.$api.delCollect(this.datas.id)
+					if(re) {
+						this.$emit('refresh')
+					}
 				}		
 			},
 			change(open){
