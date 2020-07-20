@@ -8,6 +8,7 @@ const shopId = '9986737883062651401706261418474'
 export function request(url, method = "GET", data,config={}) {
   return new Promise(function (resolve, reject) {
 		let token = uni.getStorageSync('token')
+		console.log(url,'url')
     uni.request({
       url: baseUrl+url,
       data: data,

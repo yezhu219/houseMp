@@ -134,10 +134,19 @@
 				<view class="right">
 					<input type="text" placeholder="请输入" v-model="addData.shop_price" />
 				</view>
-			</view><view class="form-item mt-20 line-b" v-else>
-				<view class="label">租金</view>
-				<view class="right">
-					<input type="text" placeholder="请输入" v-model="addData.rent" />
+			</view>
+			<view v-else>
+				<view class="form-item mt-20 line-b">
+					<view class="label">租金</view>
+					<view class="right">
+						<input type="text" placeholder="请输入" v-model="addData.rent" />
+					</view>
+				</view>
+				<view class="form-item mt-20 line-b">
+					<view class="label">日租金</view>
+					<view class="right">
+						<input type="text" placeholder="请输入" v-model="addData.day_rent" />
+					</view>
 				</view>
 			</view>
 			<view class="form-item mt-20 line-b"  v-if="type==3">
@@ -348,7 +357,12 @@
 		onShow() {
 			  const location = chooseLocation.getLocation();
 				console.log(location,'loaction')
-				this.addData.address = location&&location.name
+				if(location) {
+					this.addData.address = location.name
+					this.addData.latitude = location.latitude
+					this.addData.longitude = location.longitude
+					
+				}
 		},
 		computed: {
 				startDate() {
@@ -403,7 +417,7 @@
 					return `${year}-${month}-${day}`;
 			},
 			bindPickerChange(e) {
-					this.index = e.target.value
+				 	this.type = this.index = e.target.value
 					this.addData.housing_type = this.transType[this.index].name
 			},
 			regionChange(e) {

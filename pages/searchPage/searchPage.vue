@@ -7,7 +7,7 @@
 		<view class="list" v-if="list.length>0">
 			<card v-for="(item,index) in list " :datas="item.fields" :houseId="item.pk" :key="index"></card>
 		</view>
-		<view class="tac" v-if="list.length==0">
+		<view class="tac" v-if="list.length==0&&key">
 			没有数据~~~
 		</view>
 	</view>
@@ -24,17 +24,18 @@
 			};
 		},
 		onLoad(op) {
-			this.key = this.type= op.type
+			this.key = this.type= op&&op.type
 		},
 		mounted() {
-			this.init()
+			if(this.key) {
+				this.init()
+			}
 		},
 		methods: {
 			async init() {
 				let res = await this.$api.search({key:this.key})
 				if(res) {
 					this.list = res
-					console.log(res[0].pk,'pk')
 				}
 			}
 		},

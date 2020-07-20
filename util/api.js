@@ -28,6 +28,10 @@ export default {
 	  return await request('api/collect/', 'get', data)
 	},
 	async getHouseById(data) {
+	  // return await request('api/housing/'+data, 'get')
+	  return await request('api/home/'+data, 'get')
+	},
+	async getHouse(data) {
 	  return await request('api/housing/'+data, 'get')
 	},
 	async addCollect(data) {

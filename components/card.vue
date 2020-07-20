@@ -15,7 +15,7 @@
 					 	<view class="">
 					 		<view class="fz28 fw-b mb-24">{{getType(datas.region)}}｜{{datas.built_up_area}}㎡</view>
 					 		<view class="mb-24 c-333 fz24">{{datas.address}}</view>
-					 		<view class="fz28 c-ff6">{{datas.rent || ''}}元/㎡/天</view>
+					 		<view class="fz28 c-ff6">{{datas.rent }}</view>
 					 	</view>
 						</view>
 		    </uni-swipe-action-item>
@@ -42,6 +42,10 @@
 			houseId: {
 				// type:String,
 				// default:''
+			},
+			type: {
+				type:String,
+				default: ""
 			}
 		},
 		data() {
@@ -74,7 +78,7 @@
 				let id = this.houseId?this.houseId:this.datas.id
 				console.log(this.houseId,'id',id)
 				uni.navigateTo({
-					url:'/pages/detail/detail?id='+id
+					url:'/pages/detail/detail?id='+id+'&type='+this.type
 				})
 			},
 			getType(data) {

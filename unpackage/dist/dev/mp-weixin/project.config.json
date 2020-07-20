@@ -24,43 +24,13 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/counsoler/counsoler",
-					"pathName": "pages/counsoler/counsoler",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/addNews/addNews",
-					"pathName": "pages/addNews/addNews",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/uploadImage/uploadImage",
-					"pathName": "pages/uploadImage/uploadImage",
-					"query": "id=11",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

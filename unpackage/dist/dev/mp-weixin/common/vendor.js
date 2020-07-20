@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1731,55 +1731,59 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
                 (0, _request.request)('api/collect/', 'get', data));case 2:return _context7.abrupt("return", _context7.sent);case 3:case "end":return _context7.stop();}}}, _callee7);}))();
   },
   getHouseById: function getHouseById(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee8() {return _regenerator.default.wrap(function _callee8$(_context8) {while (1) {switch (_context8.prev = _context8.next) {case 0:_context8.next = 2;return (
-                (0, _request.request)('api/housing/' + data, 'get'));case 2:return _context8.abrupt("return", _context8.sent);case 3:case "end":return _context8.stop();}}}, _callee8);}))();
+
+                (0, _request.request)('api/home/' + data, 'get'));case 2:return _context8.abrupt("return", _context8.sent);case 3:case "end":return _context8.stop();}}}, _callee8);}))();
   },
-  addCollect: function addCollect(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee9() {return _regenerator.default.wrap(function _callee9$(_context9) {while (1) {switch (_context9.prev = _context9.next) {case 0:_context9.next = 2;return (
-                (0, _request.request)('api/collect/', 'post', data));case 2:return _context9.abrupt("return", _context9.sent);case 3:case "end":return _context9.stop();}}}, _callee9);}))();
+  getHouse: function getHouse(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee9() {return _regenerator.default.wrap(function _callee9$(_context9) {while (1) {switch (_context9.prev = _context9.next) {case 0:_context9.next = 2;return (
+                (0, _request.request)('api/housing/' + data, 'get'));case 2:return _context9.abrupt("return", _context9.sent);case 3:case "end":return _context9.stop();}}}, _callee9);}))();
   },
-  delCollect: function delCollect(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee10() {return _regenerator.default.wrap(function _callee10$(_context10) {while (1) {switch (_context10.prev = _context10.next) {case 0:_context10.next = 2;return (
-                (0, _request.request)('api/collect/' + data, 'delete'));case 2:return _context10.abrupt("return", _context10.sent);case 3:case "end":return _context10.stop();}}}, _callee10);}))();
+  addCollect: function addCollect(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee10() {return _regenerator.default.wrap(function _callee10$(_context10) {while (1) {switch (_context10.prev = _context10.next) {case 0:_context10.next = 2;return (
+                (0, _request.request)('api/collect/', 'post', data));case 2:return _context10.abrupt("return", _context10.sent);case 3:case "end":return _context10.stop();}}}, _callee10);}))();
   },
-  delHouse: function delHouse(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee11() {return _regenerator.default.wrap(function _callee11$(_context11) {while (1) {switch (_context11.prev = _context11.next) {case 0:_context11.next = 2;return (
-                (0, _request.request)('api/housing/' + data.id, 'delete', data));case 2:return _context11.abrupt("return", _context11.sent);case 3:case "end":return _context11.stop();}}}, _callee11);}))();
+  delCollect: function delCollect(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee11() {return _regenerator.default.wrap(function _callee11$(_context11) {while (1) {switch (_context11.prev = _context11.next) {case 0:_context11.next = 2;return (
+                (0, _request.request)('api/collect/' + data, 'delete'));case 2:return _context11.abrupt("return", _context11.sent);case 3:case "end":return _context11.stop();}}}, _callee11);}))();
   },
-  addAppoint: function addAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee12() {return _regenerator.default.wrap(function _callee12$(_context12) {while (1) {switch (_context12.prev = _context12.next) {case 0:_context12.next = 2;return (
-                (0, _request.request)('api/reservation/', 'post', data));case 2:return _context12.abrupt("return", _context12.sent);case 3:case "end":return _context12.stop();}}}, _callee12);}))();
+  delHouse: function delHouse(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee12() {return _regenerator.default.wrap(function _callee12$(_context12) {while (1) {switch (_context12.prev = _context12.next) {case 0:_context12.next = 2;return (
+                (0, _request.request)('api/housing/' + data.id, 'delete', data));case 2:return _context12.abrupt("return", _context12.sent);case 3:case "end":return _context12.stop();}}}, _callee12);}))();
   },
-  getAppointDetail: function getAppointDetail(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee13() {return _regenerator.default.wrap(function _callee13$(_context13) {while (1) {switch (_context13.prev = _context13.next) {case 0:_context13.next = 2;return (
-                (0, _request.request)('api/reservation/' + data, 'get'));case 2:return _context13.abrupt("return", _context13.sent);case 3:case "end":return _context13.stop();}}}, _callee13);}))();
+  addAppoint: function addAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee13() {return _regenerator.default.wrap(function _callee13$(_context13) {while (1) {switch (_context13.prev = _context13.next) {case 0:_context13.next = 2;return (
+                (0, _request.request)('api/reservation/', 'post', data));case 2:return _context13.abrupt("return", _context13.sent);case 3:case "end":return _context13.stop();}}}, _callee13);}))();
   },
-  delAppoint: function delAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee14() {return _regenerator.default.wrap(function _callee14$(_context14) {while (1) {switch (_context14.prev = _context14.next) {case 0:_context14.next = 2;return (
-                (0, _request.request)('api/reservation/' + data, 'delete', data));case 2:return _context14.abrupt("return", _context14.sent);case 3:case "end":return _context14.stop();}}}, _callee14);}))();
+  getAppointDetail: function getAppointDetail(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee14() {return _regenerator.default.wrap(function _callee14$(_context14) {while (1) {switch (_context14.prev = _context14.next) {case 0:_context14.next = 2;return (
+                (0, _request.request)('api/reservation/' + data, 'get'));case 2:return _context14.abrupt("return", _context14.sent);case 3:case "end":return _context14.stop();}}}, _callee14);}))();
   },
-  updateAppoint: function updateAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee15() {return _regenerator.default.wrap(function _callee15$(_context15) {while (1) {switch (_context15.prev = _context15.next) {case 0:_context15.next = 2;return (
-                (0, _request.request)('api/reservation/' + data.id + '/', 'put', data));case 2:return _context15.abrupt("return", _context15.sent);case 3:case "end":return _context15.stop();}}}, _callee15);}))();
+  delAppoint: function delAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee15() {return _regenerator.default.wrap(function _callee15$(_context15) {while (1) {switch (_context15.prev = _context15.next) {case 0:_context15.next = 2;return (
+                (0, _request.request)('api/reservation/' + data, 'delete', data));case 2:return _context15.abrupt("return", _context15.sent);case 3:case "end":return _context15.stop();}}}, _callee15);}))();
   },
-  getAppointList: function getAppointList(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee16() {return _regenerator.default.wrap(function _callee16$(_context16) {while (1) {switch (_context16.prev = _context16.next) {case 0:_context16.next = 2;return (
-                (0, _request.request)('api/reservation/', 'get', data));case 2:return _context16.abrupt("return", _context16.sent);case 3:case "end":return _context16.stop();}}}, _callee16);}))();
+  updateAppoint: function updateAppoint(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee16() {return _regenerator.default.wrap(function _callee16$(_context16) {while (1) {switch (_context16.prev = _context16.next) {case 0:_context16.next = 2;return (
+                (0, _request.request)('api/reservation/' + data.id + '/', 'put', data));case 2:return _context16.abrupt("return", _context16.sent);case 3:case "end":return _context16.stop();}}}, _callee16);}))();
   },
-  getBrand: function getBrand(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee17() {return _regenerator.default.wrap(function _callee17$(_context17) {while (1) {switch (_context17.prev = _context17.next) {case 0:_context17.next = 2;return (
-                (0, _request.request)('api/brand/', 'get', data));case 2:return _context17.abrupt("return", _context17.sent);case 3:case "end":return _context17.stop();}}}, _callee17);}))();
+  getAppointList: function getAppointList(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee17() {return _regenerator.default.wrap(function _callee17$(_context17) {while (1) {switch (_context17.prev = _context17.next) {case 0:_context17.next = 2;return (
+                (0, _request.request)('api/reservation/', 'get', data));case 2:return _context17.abrupt("return", _context17.sent);case 3:case "end":return _context17.stop();}}}, _callee17);}))();
   },
-  getBanner: function getBanner(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee18() {return _regenerator.default.wrap(function _callee18$(_context18) {while (1) {switch (_context18.prev = _context18.next) {case 0:_context18.next = 2;return (
-                (0, _request.request)('api/banner/', 'get', data));case 2:return _context18.abrupt("return", _context18.sent);case 3:case "end":return _context18.stop();}}}, _callee18);}))();
+  getBrand: function getBrand(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee18() {return _regenerator.default.wrap(function _callee18$(_context18) {while (1) {switch (_context18.prev = _context18.next) {case 0:_context18.next = 2;return (
+                (0, _request.request)('api/brand/', 'get', data));case 2:return _context18.abrupt("return", _context18.sent);case 3:case "end":return _context18.stop();}}}, _callee18);}))();
   },
-  search: function search(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee19() {return _regenerator.default.wrap(function _callee19$(_context19) {while (1) {switch (_context19.prev = _context19.next) {case 0:_context19.next = 2;return (
-                (0, _request.request)('api/search/', 'post', data));case 2:return _context19.abrupt("return", _context19.sent);case 3:case "end":return _context19.stop();}}}, _callee19);}))();
+  getBanner: function getBanner(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee19() {return _regenerator.default.wrap(function _callee19$(_context19) {while (1) {switch (_context19.prev = _context19.next) {case 0:_context19.next = 2;return (
+                (0, _request.request)('api/banner/', 'get', data));case 2:return _context19.abrupt("return", _context19.sent);case 3:case "end":return _context19.stop();}}}, _callee19);}))();
   },
-  updateUser: function updateUser(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee20() {return _regenerator.default.wrap(function _callee20$(_context20) {while (1) {switch (_context20.prev = _context20.next) {case 0:_context20.next = 2;return (
-                (0, _request.request)('/api/user/info/', 'post', data));case 2:return _context20.abrupt("return", _context20.sent);case 3:case "end":return _context20.stop();}}}, _callee20);}))();
+  search: function search(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee20() {return _regenerator.default.wrap(function _callee20$(_context20) {while (1) {switch (_context20.prev = _context20.next) {case 0:_context20.next = 2;return (
+                (0, _request.request)('api/search/', 'post', data));case 2:return _context20.abrupt("return", _context20.sent);case 3:case "end":return _context20.stop();}}}, _callee20);}))();
   },
-  getUserInfo: function getUserInfo(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee21() {return _regenerator.default.wrap(function _callee21$(_context21) {while (1) {switch (_context21.prev = _context21.next) {case 0:_context21.next = 2;return (
-                (0, _request.request)('/api/user/info/', 'get', data));case 2:return _context21.abrupt("return", _context21.sent);case 3:case "end":return _context21.stop();}}}, _callee21);}))();
+  updateUser: function updateUser(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee21() {return _regenerator.default.wrap(function _callee21$(_context21) {while (1) {switch (_context21.prev = _context21.next) {case 0:_context21.next = 2;return (
+                (0, _request.request)('/api/user/info/', 'post', data));case 2:return _context21.abrupt("return", _context21.sent);case 3:case "end":return _context21.stop();}}}, _callee21);}))();
   },
-  getCollectStatus: function getCollectStatus(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee22() {return _regenerator.default.wrap(function _callee22$(_context22) {while (1) {switch (_context22.prev = _context22.next) {case 0:_context22.next = 2;return (
-                (0, _request.request)('/api/isCollect/', 'post', data));case 2:return _context22.abrupt("return", _context22.sent);case 3:case "end":return _context22.stop();}}}, _callee22);}))();
+  getUserInfo: function getUserInfo(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee22() {return _regenerator.default.wrap(function _callee22$(_context22) {while (1) {switch (_context22.prev = _context22.next) {case 0:_context22.next = 2;return (
+                (0, _request.request)('/api/user/info/', 'get', data));case 2:return _context22.abrupt("return", _context22.sent);case 3:case "end":return _context22.stop();}}}, _callee22);}))();
   },
-  getStaff: function getStaff(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee23() {return _regenerator.default.wrap(function _callee23$(_context23) {while (1) {switch (_context23.prev = _context23.next) {case 0:_context23.next = 2;return (
-                (0, _request.request)('/api/StaffInfo/', 'post', data));case 2:return _context23.abrupt("return", _context23.sent);case 3:case "end":return _context23.stop();}}}, _callee23);}))();
+  getCollectStatus: function getCollectStatus(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee23() {return _regenerator.default.wrap(function _callee23$(_context23) {while (1) {switch (_context23.prev = _context23.next) {case 0:_context23.next = 2;return (
+                (0, _request.request)('/api/isCollect/', 'post', data));case 2:return _context23.abrupt("return", _context23.sent);case 3:case "end":return _context23.stop();}}}, _callee23);}))();
   },
-  uploadHouseImg: function uploadHouseImg(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee24() {return _regenerator.default.wrap(function _callee24$(_context24) {while (1) {switch (_context24.prev = _context24.next) {case 0:_context24.next = 2;return (
-                (0, _request.request)('/api/album/', 'post', data));case 2:return _context24.abrupt("return", _context24.sent);case 3:case "end":return _context24.stop();}}}, _callee24);}))();
+  getStaff: function getStaff(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee24() {return _regenerator.default.wrap(function _callee24$(_context24) {while (1) {switch (_context24.prev = _context24.next) {case 0:_context24.next = 2;return (
+                (0, _request.request)('/api/StaffInfo/', 'post', data));case 2:return _context24.abrupt("return", _context24.sent);case 3:case "end":return _context24.stop();}}}, _callee24);}))();
+  },
+  uploadHouseImg: function uploadHouseImg(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee25() {return _regenerator.default.wrap(function _callee25$(_context25) {while (1) {switch (_context25.prev = _context25.next) {case 0:_context25.next = 2;return (
+                (0, _request.request)('/api/album/', 'post', data));case 2:return _context25.abrupt("return", _context25.sent);case 3:case "end":return _context25.stop();}}}, _callee25);}))();
   } };exports.default = _default;
 
 /***/ }),
@@ -2575,7 +2579,64 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 142:
+/***/ 15:
+/*!******************************************!*\
+  !*** D:/project/houseMp/util/request.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = request; /**
+                                                                                                       * 封装uni的request
+                                                                                                       */
+// const baseUrl = 'http://49.234.133.200:8001'
+var baseUrl = 'https://olvintage.com/';
+var shopId = '9986737883062651401706261418474';
+
+function request(url) {var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "GET";var data = arguments.length > 2 ? arguments[2] : undefined;var config = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+  return new Promise(function (resolve, reject) {
+    var token = uni.getStorageSync('token');
+    console.log(url, 'url');
+    uni.request({
+      url: baseUrl + url,
+      data: data,
+      method: method,
+      header: {
+        'Authorization': "jwt ".concat(token),
+        // 'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Cookie': 'JSESSIONID='+ wx.getStorageSync('sessionId')
+      },
+      success: function success(res) {
+        uni.hideLoading();
+        if (res.statusCode == 401) {
+          uni.removeStorageSync('token');
+          uni.navigateTo({
+            url: '/pages/login/login' });
+
+          return;
+        }
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        var msg = JSON.stringify(err);
+        uni.showModal({
+          title: '错误',
+          // content: '网络异常',
+          content: msg,
+          showCancel: false });
+
+        reject(err);
+      } });
+
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 152:
 /*!**************************************************************************!*\
   !*** D:/project/houseMp/components/simple-address/city-data/province.js ***!
   \**************************************************************************/
@@ -2729,7 +2790,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 143:
+/***/ 153:
 /*!**********************************************************************!*\
   !*** D:/project/houseMp/components/simple-address/city-data/city.js ***!
   \**********************************************************************/
@@ -4247,7 +4308,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 144:
+/***/ 154:
 /*!**********************************************************************!*\
   !*** D:/project/houseMp/components/simple-address/city-data/area.js ***!
   \**********************************************************************/
@@ -16806,63 +16867,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 15:
-/*!******************************************!*\
-  !*** D:/project/houseMp/util/request.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = request; /**
-                                                                                                       * 封装uni的request
-                                                                                                       */
-// const baseUrl = 'http://49.234.133.200:8001'
-var baseUrl = 'https://olvintage.com/';
-var shopId = '9986737883062651401706261418474';
-
-function request(url) {var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "GET";var data = arguments.length > 2 ? arguments[2] : undefined;var config = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-  return new Promise(function (resolve, reject) {
-    var token = uni.getStorageSync('token');
-    uni.request({
-      url: baseUrl + url,
-      data: data,
-      method: method,
-      header: {
-        'Authorization': "jwt ".concat(token),
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Cookie': 'JSESSIONID='+ wx.getStorageSync('sessionId')
-      },
-      success: function success(res) {
-        uni.hideLoading();
-        if (res.statusCode == 401) {
-          uni.removeStorageSync('token');
-          uni.navigateTo({
-            url: '/pages/login/login' });
-
-          return;
-        }
-        resolve(res.data);
-      },
-      fail: function fail(err) {
-        var msg = JSON.stringify(err);
-        uni.showModal({
-          title: '错误',
-          // content: '网络异常',
-          content: msg,
-          showCancel: false });
-
-        reject(err);
-      } });
-
-  });
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 164:
+/***/ 174:
 /*!********************************************************************!*\
   !*** D:/project/houseMp/components/uni-swipe-action-item/mpwxs.js ***!
   \********************************************************************/
@@ -16969,7 +16974,7 @@ function request(url) {var method = arguments.length > 1 && arguments[1] !== und
 
 /***/ }),
 
-/***/ 181:
+/***/ 191:
 /*!********************************************************!*\
   !*** D:/project/houseMp/components/uni-icons/icons.js ***!
   \********************************************************/
@@ -22607,7 +22612,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -22628,14 +22633,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -22711,7 +22716,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));

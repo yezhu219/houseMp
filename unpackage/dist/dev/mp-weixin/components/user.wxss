@@ -39,4 +39,12 @@
   background-color: #f5f5f5;
   padding: 20rpx;
 }
+.userCard .call {
+  background-color: #b34420;
+  color: #fff;
+  width: 200rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+}
 

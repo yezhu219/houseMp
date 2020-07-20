@@ -1,16 +1,16 @@
 <template>
-	<view class="userCard" @click="toDetail">
-		<view class="df-ac mb-30">
+	<view class="userCard bg-f fsb" @click="toDetail">
+		<view class="df-ac">
 			<image :src="datas.staff_head" mode="" class="avatar"></image>
 			<view class="">
 				<view class="df-ac mb-24">
 					<text style="margin-right: 10upx;">{{datas.real_name}}</text>
-					<!-- <image src="../static/icon/check.png" mode="" class="icon"></image> -->
 				</view>
 				<!-- <view class="mb-24"><uni-rate size="18" value="5"></uni-rate></view> -->
 				<view class="c-666">{{datas.phone}}</view>
 			</view>
 		</view>
+		<view class="call" @click.stop="makeCall">拨打电话</view>
 		<!-- <view class="richbox">
 			 <rich-text :nodes="strings"></rich-text>
 		</view> -->
@@ -33,6 +33,11 @@ import uniRate from '@/components/uni-rate/uni-rate.vue'
 			toDetail() {
 				uni.navigateTo({
 					url:'/pages/detail/detail'
+				})
+			},
+			makeCall() {
+				wx.makePhoneCall({
+				  phoneNumber: this.datas.phone //仅为示例，并非真实的电话号码
 				})
 			}
 		},
@@ -58,6 +63,14 @@ import uniRate from '@/components/uni-rate/uni-rate.vue'
 		height: 300px;
 		background-color: #f5f5f5;
 		padding: 20upx;
+	}
+	.call {
+		background-color: rgb(179, 68, 32);
+		color: #fff;
+		width: 200upx;
+		height: 120upx;
+		line-height: 120upx;
+		text-align: center;
 	}
 }
 </style>

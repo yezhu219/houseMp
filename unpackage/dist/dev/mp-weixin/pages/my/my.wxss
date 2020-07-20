@@ -24,6 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+button.coll {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+button.coll::after {
+  width: 0;
+  height: 0;
+}
 .my.page {
   background-color: #fff;
   padding: 0 30rpx;

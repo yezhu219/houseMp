@@ -130,7 +130,21 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var user = function user() {__webpack_require__.e(/*! require.ensure | components/user */ "components/user").then((function () {return resolve(__webpack_require__(/*! ../../components/user.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var user = function user() {__webpack_require__.e(/*! require.ensure | components/user */ "components/user").then((function () {return resolve(__webpack_require__(/*! ../../components/user.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -239,11 +253,23 @@ __webpack_require__.r(__webpack_exports__);
       isCollect: false,
       id: '',
       house: {},
-      staff: {} };
+      staff: {},
+      markers: [
+      {
+        iconPath: "/static/icon/p.png",
+        id: 0,
+        latitude: "",
+        longitude: "",
+        width: 50,
+        height: 50 }],
+
+
+      type: '' };
 
   },
   onLoad: function onLoad(op) {
     this.id = op.id;
+    this.type = op.type;
   },
   mounted: function mounted() {
     this.init();
@@ -251,11 +277,20 @@ __webpack_require__.r(__webpack_exports__);
     this.getStaff();
   },
   methods: {
-    init: function init() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _this.$api.getHouseById(_this.id));case 2:res = _context.sent;
+    init: function init() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                res = null;if (!
+                _this.type) {_context.next = 7;break;}_context.next = 4;return (
+                  _this.$api.getHouse(_this.id));case 4:res = _context.sent;_context.next = 10;break;case 7:_context.next = 9;return (
+
+                  _this.$api.getHouseById(_this.id));case 9:res = _context.sent;case 10:
+
                 if (res) {
                   _this.house = res;
-                }case 4:case "end":return _context.stop();}}}, _callee);}))();
+                  _this.markers.forEach(function (item) {
+                    item.latitude = res.latitude;
+                    item.longitude = res.longitude;
+                  });
+                }case 11:case "end":return _context.stop();}}}, _callee);}))();
     },
     getStaff: function getStaff() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   _this2.$api.getStaff({ id: _this2.id }));case 2:res = _context2.sent;

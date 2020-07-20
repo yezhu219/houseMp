@@ -10,6 +10,13 @@
 				<image src="../../static/icon/save.png" class="u-edit" @click="save"></image>
 			</view>
 		</view>
+		<view class="cell fsb" @click="toMyNews('addNews')">
+			<view class="cell-left" >
+				<image src="../../static/icon/ad.png" mode=""></image>
+				<text>发布信息</text>
+			</view>
+			<image src="../../static/icon/right.png" mode="" class="arrow-right"></image>
+		</view>
 		<view class="cell fsb" @click="toMyNews('myNews')">
 			<view class="cell-left" >
 				<image src="../../static/icon/m1.png" mode=""></image>
@@ -31,13 +38,17 @@
 			</view>
 			<image src="../../static/icon/right.png" mode="" class="arrow-right"></image>
 		</view>
-		<view class="cell fsb"  @click="toMyNews('counsoler')">
-			<view class="cell-left">
-				<image src="../../static/icon/m4.png" mode=""></image>
-				<text>我的顾问</text>
+		<button  open-type="contact" class="coll">
+			<view class="cell fsb"   >
+				<view class="cell-left">
+					<image src="../../static/icon/m4.png" mode=""></image>
+					<text>我的顾问</text>
+				</view>
+				<image src="../../static/icon/right.png" mode="" class="arrow-right"></image>
 			</view>
-			<image src="../../static/icon/right.png" mode="" class="arrow-right"></image>
-		</view>
+		</button>
+		
+		<!-- <button open-type="contact" ref="btn" @contact="handleContact" style="display: none;">客服</button> -->
 	</view>
 </template>
 
@@ -64,6 +75,10 @@
 				}
 			},
 			toMyNews(type) {
+				console.log(type,'aa')
+				if(type=='counsoler') {
+					return
+				}
 				uni.navigateTo({
 					url:'/pages/'+type+'/'+type
 				})
@@ -115,6 +130,15 @@
 </script>
 
 <style lang="scss">
+	button.coll {
+		background: #fff;
+		border:none;
+		padding: 0;
+		&::after {
+			width: 0;
+			height: 0;
+		}
+	}
 .my {
 	&.page {
 		background-color: #fff;

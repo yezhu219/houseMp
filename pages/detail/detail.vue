@@ -1,23 +1,24 @@
 <template>
 	<view class="page-detail">
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-			<swiper-item>
-				<view class="swiper-item"><image src="../../static/icon/img.png" mode=""></image></view>
+			<swiper-item v-for="item in house.album" :key="item.id">
+				<view class="swiper-item"><image :src="item.url" mode=""></image></view>
 			</swiper-item>
 		</swiper>
 		<view class="main">
 			<image src="../../static/icon/c1.png" mode="" class="icon-collect" v-if="isCollect" @click="handleCollect(1)"></image>
 			<image src="../../static/icon/c2.png" class="icon-collect" v-if="!isCollect"  @click="handleCollect(2)"></image>
-			<view class="mb-24"><text class="c-ff6">{{house.rent}} </text><text class="c-666">{{house.yafu}}</text></view>
+			<view class="mb-24"><text class="c-ff6" style="margin-right: 10upx;">{{house.rent}} </text><text class="c-666">{{house.yafu}}</text></view>
 			<view class="title">{{house.title}}</view>
 			<view class="tag df">
-				<view class="tag-item">{{house.housing_type==1?'商铺出租':house.housing_type==2?'商铺出售':'生意转让'}}</view>
+				<!-- <view class="tag-item">{{house.housing_type==1?'商铺出租':house.housing_type==2?'商铺出售':'生意转让'}}</view> -->
+				<view class="tag-item">{{house.housing_type}}</view>
 				<!-- <view class="tag-item">转让</view>
 				<view class="tag-item">转让</view> -->
 			</view>
 			<view class="info">
 				<view class="info-item" v-if="house.housing_type!=2">
-					<view class="mb-15">{{house.zhaunrang}}万</view>
+					<view class="mb-15">{{house.zhaunrang}}</view>
 					<view class="c-666">转让费</view>
 				</view>
 				<view class="info-item" v-if="house.housing_type==2">
@@ -40,19 +41,26 @@
 			<view class="title">房源须知</view>
 			<view class="note mb-24" v-if="house.housing_type!=2">
 				<view class="note-item">
-					<image src="../../static/icon/i2.png" mode=""></image>
-					<text class="mr-40">商铺类型</text>
+					<view class="n-left">
+						<image src="../../static/icon/l1.png" mode=""></image>
+						<text class="mr-40">商铺类型</text>
+					</view>
 					<text>{{house.shop_type}}</text>
 				</view>
 				<view class="note-item">
-					<image src="../../static/icon/i2.png" mode=""></image>
-					<text class="mr-40">当前状态</text>
+					<view class="n-left">
+						<image src="../../static/icon/l2.png" mode=""></image>
+						<text class="mr-40">当前状态</text>
+					</view>
 					<text>{{house.business_status}}</text>
 				</view>
 				<view class="note-item">
-					<image src="../../static/icon/i2.png" mode=""></image>
-					<text class="mr-40">规格参数</text>
-					<text>面宽{{house.kuan}}*进深{{house.shen}}*层高{{hous.gao}}</text>
+					<view class="n-left">
+						<image src="../../static/icon/l3.png" mode=""></image>
+						<text class="mr-40">规格参数</text>
+					</view>
+					
+					<text>面宽{{house.kuan}}*进深{{house.shen}}*层高{{house.gao}}</text>
 				</view>
 				<view class="note-item" v-if="house.housing_type==1">
 					<image src="../../static/icon/i2.png" mode=""></image>
@@ -82,6 +90,8 @@
 					<text>{{house.free_rent_time}}</text>
 				</view>
 			</view>
+			<view class="title">房源须知</view>
+			<view class="c-666 mb-30" style="line-height:1.5">{{house.desc}}</view>
 			<!-- <view class="title">配套设施</view>
 			<view class="eqment mb-30">
 				<view class="eq-item df-cc">
@@ -90,12 +100,16 @@
 				</view>
 			</view> -->
 			<view>
+				<map style="width: 100%; height: 300px;" 
+					:latitude="house.latitude"
+					:longitude="house.longitude" 
+					:markers="markers"></map>
+			</view>
+			<view class="fix-foot">
 				<user :datas="staff"></user>
 			</view>
 		</view>
-		<view>
-			<!-- <map style="width: 100%; height: 300px;" ></map> -->
-		</view>
+		
 	</view>
 </template>
 
@@ -107,11 +121,23 @@
 				isCollect:false,
 				id:'',
 				house:{},
-				staff:{}
+				staff:{},
+				markers: [
+					{
+						iconPath: "/static/icon/p.png",
+						id: 0,
+						latitude: "",
+						longitude: "",
+						width: 50,
+						height: 50
+					},
+				],
+				type:''
 			}
 		},
 		onLoad(op) {
 			this.id = op.id
+			this.type = op.type
 		},
 		mounted() {
 			this.init()
@@ -120,9 +146,18 @@
 		},
 		methods: {
 			async init() {
-				let res = await this.$api.getHouseById(this.id)
+				let res = null
+				if(this.type) {
+					res = await this.$api.getHouse(this.id)
+				}else {
+				 res = await this.$api.getHouseById(this.id)
+				}
 				if(res) {
 					this.house = res
+					this.markers.forEach(item=>{
+						item.latitude = res.latitude
+						item.longitude = res.longitude
+					})
 				}
 			},
 			async getStaff() {
@@ -167,6 +202,7 @@
 		background-color: #fff;
 	}
 .page-detail {
+	padding-bottom: 120upx;
 	.swiper-item {
 		image {
 			width: 100%;
@@ -212,13 +248,23 @@
 	}
 	.note {
 		.note-item {
+			display: flex;
 			color: #666;
 			display: flex;
 			align-items: center;
+			margin-bottom: 20upx;
 			image {
 				width: 40upx;
 				height: 40upx;
 				margin-right: 10upx;
+			}
+			.n-left {
+				width: 240upx;
+				display: flex;
+				align-items: center;
+				text {
+					margin-right: 0;
+				}
 			}
 		}
 	}
@@ -234,6 +280,13 @@
 				
 			}
 		}
+	}
+	.fix-foot {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding-left: 30upx;
 	}
 }
 </style>

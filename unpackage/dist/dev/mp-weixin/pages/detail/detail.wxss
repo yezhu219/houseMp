@@ -27,6 +27,9 @@
 page {
   background-color: #fff;
 }
+.page-detail {
+  padding-bottom: 120rpx;
+}
 .page-detail .swiper-item image {
   width: 100%;
   height: 400rpx;
@@ -73,7 +76,23 @@ page {
   text-align: center;
 }
 .page-detail .note .note-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   color: #666;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 20rpx;
+}
+.page-detail .note .note-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.page-detail .note .note-item .n-left {
+  width: 240rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -81,10 +100,8 @@ page {
   -webkit-align-items: center;
           align-items: center;
 }
-.page-detail .note .note-item image {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 10rpx;
+.page-detail .note .note-item .n-left text {
+  margin-right: 0;
 }
 .page-detail .eqment {
   display: -webkit-box;
@@ -105,5 +122,12 @@ page {
 .page-detail .eqment .eq-item image {
   width: 100rpx;
   height: 100rpx;
+}
+.page-detail .fix-foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 30rpx;
 }
 

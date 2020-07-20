@@ -7,7 +7,7 @@
 		</swiper>
 		<view class="search mb-30 mt-20">
 			<image src="../../static/icon/search.png" mode=""></image>
-			<input type="text" @click="toSearch">
+			<input type="text" @click="toSearch(false)">
 		</view>
 		<view class="nav-list mb-15">
 			<view class="nav-item" v-for="item in navList" :key="item.id" @click="toSearch(item)">
@@ -101,8 +101,9 @@
 					})
 					return 
 				}
+				let type = data?data.name:""
 				uni.navigateTo({
-					url:'/pages/searchPage/searchPage?type='+data.name
+					url:'/pages/searchPage/searchPage?type='+type
 				})
 			}
 		},
@@ -114,10 +115,14 @@
 
 <style lang="scss">
 	.page {
-		.swiper-item {
+		swiper {
+			height: 490upx;
+		}
+		swiper-item {
+			height: 490upx;
 			image {
 				width: 100%;
-				height: 300upx;
+				height: 490upx;
 			}
 		}
 		.nav-list {

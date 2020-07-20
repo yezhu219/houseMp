@@ -178,6 +178,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -201,6 +212,10 @@ var _default =
                 }case 4:case "end":return _context.stop();}}}, _callee);}))();
     },
     toMyNews: function toMyNews(type) {
+      console.log(type, 'aa');
+      if (type == 'counsoler') {
+        return;
+      }
       uni.navigateTo({
         url: '/pages/' + type + '/' + type });
 

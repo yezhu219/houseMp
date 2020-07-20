@@ -4,7 +4,7 @@
 			<view class="tab-item" :class="{active:current==item.id}" v-for="(item,index) in tab" @click="itemClick(item)" :key="item.id">{{item.name}}</view>
 		</view>
 		<view>
-			<card v-for="it in list" :key="it.id" :datas="it" @refresh="init"></card>
+			<card v-for="it in list" :key="it.id" type="my" :datas="it" @refresh="init"></card>
 		</view>
 	</view>
 </template>
